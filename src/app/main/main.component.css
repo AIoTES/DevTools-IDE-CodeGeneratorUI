@@ -1,0 +1,36 @@
+.mat-column-ontology_url{
+    text-align: center;
+    
+    
+}
+.mat-column-recursive{
+    text-align: center;
+}
+
+.coordinator{
+    display: inline-block;
+    padding: 10sp;
+}
+#xml-coord-label{
+    margin-right: 14px;
+}
+.ont_input_rec{
+    display: inline-block;
+}
+.ont_input_url{
+    display: inline-block;
+}
+.ontology-div, .variables-div, .coordinator-div{
+    width: 40%;
+    position: relative;
+    padding: 15px;
+}
+
+.ont-input-div{
+    padding: 15px;
+    
+}
+
+.vars-table, .ont-table{
+    width: 40%;
+}

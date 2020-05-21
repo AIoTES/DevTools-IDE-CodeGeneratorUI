@@ -1,0 +1,67 @@
+
+<div class="coordinator-div">
+    <p class="coordinator" id="xml-coord-label">XML Coordinator</p>
+    <input class="coordinator" matInput placeholder="XML coordinator URL"  [(ngModel)]="coordinator">
+</div>
+<div class="variables-div">
+    <div>
+        
+        <input matInput placeholder="Variable name"  [(ngModel)]="var_name">
+        <input matInput placeholder="Variable defaulult value"  [(ngModel)]="var_value">
+        <button (click)="add_variable()">Add variable</button>
+    </div>
+    <table class="vars-table" mat-table [dataSource]="var_datasource" class="mat-elevation-z8">
+    
+        <ng-container matColumnDef="var_name">
+          <th mat-header-cell *matHeaderCellDef> Variable name </th>
+          <td mat-cell *matCellDef="let element"> {{element.var_name}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="var_value">
+          <th mat-header-cell *matHeaderCellDef> Value </th>
+          <td mat-cell *matCellDef="let element"> {{element.var_value}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="var_displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: var_displayedColumns;"></tr>
+      </table>
+    
+</div>
+<div class="ontology-div">
+
+    <div class="ont-input-div">
+      <div>
+        <p class="ont_input_url">Ontology URL</p><input  matInput class="ont_input_url"   [(ngModel)]="ont">
+      </div>
+      <div>
+        <p class="ont_input_rec">Recursive</p>
+        <mat-select  matNativeControl required class="ont_input_rec" [(value)]="selected" >
+          <mat-option value="true">True</mat-option>
+          <mat-option value="false">False</mat-option>
+        </mat-select>
+
+      </div>
+      <div><button  (click)="add_ontology()">Add Ontology</button></div>
+
+        
+    </div>
+    <table class="ont-table" mat-table [dataSource]="ont_datasource" class="mat-elevation-z8">
+        <ng-container matColumnDef="ontology_url">
+          <th mat-header-cell *matHeaderCellDef> Ontology name </th>
+          <td mat-cell *matCellDef="let element"> {{element.ont_url}}  </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="recursive">
+          <th mat-header-cell *matHeaderCellDef> Recursive </th>
+          <td mat-cell *matCellDef="let element"> {{element.recursive}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="ont_displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: ont_displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="ont_displayedColumns"> <button></button></tr>
+      </table>
+    
+
+</div>  
+
+<div>
+  <button (click)="post_data()"> enviar </button>
+</div>
