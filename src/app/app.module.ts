@@ -7,9 +7,11 @@ import { MainComponent } from './main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClientModule } from '@angular/common/http';
-import { KeycloakService, KeycloakAngularModule } from 'keycloak-angular';
-import { initializer } from '../app/utils/app-init';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SecuredHttpInterceptor } from './interceptors/secured-http.interceptor';
+import { KeycloakServiceService } from './services/keycloak-service.service';
+import { KeycloakGuardGuard } from './guards/keycloak-guard.guard';
+
 
 @NgModule({
   declarations: [
@@ -26,13 +28,14 @@ import { initializer } from '../app/utils/app-init';
     BrowserAnimationsModule
   ],
   providers: [
+    KeycloakServiceService,
+    KeycloakGuardGuard,
     {
-      provide: APP_INITIALIZER,
-      useFactory: initializer,
-      multi: true,
-      deps: [KeycloakService]
-    }
-  ],
+        provide: HTTP_INTERCEPTORS,
+        useClass: SecuredHttpInterceptor,
+        multi: true
+    },
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

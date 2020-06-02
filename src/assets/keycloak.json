@@ -1,0 +1,8 @@
+{
+    "realm": "CodeGenerator",
+    "auth-server-url": "http://localhost:5000/auth/",
+    "ssl-required": "external",
+    "resource": "codegenerator",
+    "public-client": true,
+    "confidential-port": 0
+  }
