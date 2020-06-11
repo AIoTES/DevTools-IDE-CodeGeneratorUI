@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, Route } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router, Route, CanLoad } from '@angular/router';
 import { KeycloakServiceService } from '../services/keycloak-service.service';
 import { PermissionGuard } from '../models/permission-guard';
 
 @Injectable({
   providedIn: 'root'
 })
-export class KeycloakGuardGuard implements CanActivate {
+export class KeycloakGuardGuard implements CanActivate, CanLoad{
   
   constructor( public router: Router, private keycloakService: KeycloakServiceService ) {
   }
+
   canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot ): boolean {
     let url: string = state.url;
     return this.checkLogin( url );
@@ -19,9 +20,9 @@ export class KeycloakGuardGuard implements CanActivate {
      * @param url
      */
     checkLogin( url: string ): boolean {
+        console.log("check login")
       if ( KeycloakServiceService.auth.loggedIn && KeycloakServiceService.auth.authz.authenticated ) {
           return true;
-          
       } else {
         KeycloakServiceService.login();
           return false;

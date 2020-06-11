@@ -8,13 +8,12 @@ export class KeycloakServiceService {
 
     static auth: any = {};
     static redirectUrl: string;
-
     /**
      * Initialized keycloak client
      */
     static init(): Promise<any> {
-        let keycloakAuth: any = new Keycloak( 'assets/keycloak.json' );
-        console.log(keycloakAuth)
+        console.log(" keycloak service init")
+        let keycloakAuth: any = new Keycloak('assets/config.json');
         KeycloakServiceService.auth.loggedIn = false;
 
         return new Promise(( resolve, reject ) => {
