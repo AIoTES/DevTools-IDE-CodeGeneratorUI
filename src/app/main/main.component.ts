@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { environment} from '../../environments/environment'
+
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -20,7 +24,19 @@ export class MainComponent implements OnInit {
   var_value=''
   selected="false"
   recursive =['true','false']
-  constructor(private http :HttpClient ) { }
+  aux_body={
+    template: "https://gitlab.lst.tfo.upm.es/Activage-madrid-ds/code.generator/raw/master/codegenerator.core/src/test/resources/template-simple/simple.xml",
+    ontologies: [
+      {
+        url: "https://protege.stanford.edu/ontologies/pizza/pizza.owl",
+        recursive: "true"
+      }
+    ],
+    variables: {
+      varname: "varvalue"
+    }
+  }
+  constructor(private http :HttpClient, private route: Router) { }
 
   ngOnInit(): void {
     this.ontology_datasource=[]
@@ -54,9 +70,8 @@ export class MainComponent implements OnInit {
     this.variables_datasource.forEach(element => {
       post_body.variables[element.var_name]=element.var_value
     });
-    console.log(JSON.stringify(post_body))
-    this.http.post("http://localhost:8181/GenerateCode",post_body).subscribe(data=>{
-      window.location.replace("http://www.google.com")
+    this.http.post<any>(environment.codegenerator_url,this.aux_body).subscribe(data=>{
+      this.route.navigate(['FileNavigator'])
     },error=>{
       console.log("error",error)      
     })

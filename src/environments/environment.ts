@@ -6,7 +6,7 @@ export const environment = {
   baseUrl: 'http://localhost:4200',
   production: false,
   apiUrl: 'http://localhost:5000/CodeGenerator/rest',
-
+  codegenerator_url:"http://localhost:8181/GenerateCode/",
   keycloakRealm: 'CodeGenerator',
   keycloakClient: 'CodeGenerator',
   keycloakBaseUrl: 'http://localhost:5000/'
