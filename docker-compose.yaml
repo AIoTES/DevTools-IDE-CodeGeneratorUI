@@ -1,0 +1,18 @@
+version : "3.0"
+services:
+  codegenerator:
+    image: codegenerator
+    ports:
+      - '8181:8181'
+      environment: 
+        - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
+        - CODEGENERATOR_PATH = ${CODEGENERATOR_PATH}
+        - AIOTES_API_PORT = ${AIOTES_API_PORT}
+  user-interface:
+    build: '.'
+    ports: 
+      - '8080:80'
+    environment: 
+      - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
+      - CODEGENERATOR_PATH = ${CODEGENERATOR_PATH}
+      - AIOTES_API_PORT = ${AIOTES_API_PORT}

@@ -15,7 +15,6 @@ export class KeycloakServiceService {
         console.log(" keycloak service init")
         let keycloakAuth: any = new Keycloak('assets/config.json');
         KeycloakServiceService.auth.loggedIn = false;
-
         return new Promise(( resolve, reject ) => {
             keycloakAuth.init( { onLoad: 'check-sso' } )
                 .then(() => {
@@ -27,6 +26,7 @@ export class KeycloakServiceService {
                     resolve();
                 } )
                 .catch(() => {
+                    console.log("REJECT")
                     reject();
                 } );
         } );

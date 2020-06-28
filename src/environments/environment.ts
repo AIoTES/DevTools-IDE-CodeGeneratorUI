@@ -5,11 +5,11 @@
 export const environment = {
   baseUrl: 'http://localhost:4200',
   production: false,
-  apiUrl: 'http://localhost:8080/keycloak-auth-api/rest',
+  apiUrl: 'http://localhost:5000/CodeGenerator/rest',
 
-  keycloakRealm: 'keycloak-angular-auth',
-  keycloakClient: 'auth-client',
-  keycloakBaseUrl: 'http://192.168.1.101:8080/'
+  keycloakRealm: 'CodeGenerator',
+  keycloakClient: 'CodeGenerator',
+  keycloakBaseUrl: 'http://localhost:5000/'
 };
 
 /*
