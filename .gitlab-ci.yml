@@ -1,21 +1,6 @@
-image: node:latest
-
-cache:
-  key: "$CI_COMMIT_REF_SLUG"
-  paths:
-    - node_modules/
 
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  script:
-    - npm install -g @angular/cli@latest
-    - npm install
-    - ng build
-
 
 deploy:
   stage: deploy
