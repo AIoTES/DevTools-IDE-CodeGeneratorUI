@@ -11,12 +11,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecuredHttpInterceptor } from './interceptors/secured-http.interceptor';
 import { KeycloakServiceService } from './services/keycloak-service.service';
 import { KeycloakGuardGuard } from './guards/keycloak-guard.guard';
+import { FileNavigatorComponent } from './file-navigator/file-navigator.component';
 
+
+import {MatPaginatorModule} from '@angular/material/paginator'; 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    FileNavigatorComponent
   ],
   imports: [
     MatTableModule,
@@ -25,7 +29,9 @@ import { KeycloakGuardGuard } from './guards/keycloak-guard.guard';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule
+    
   ],
   providers: [
     KeycloakServiceService,

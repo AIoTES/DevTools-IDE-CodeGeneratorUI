@@ -1,0 +1,42 @@
+image: node:latest
+
+cache:
+  key: "$CI_COMMIT_REF_SLUG"
+  paths:
+    - node_modules/
+
+before_script:
+    - npm install --silent    
+
+stages:
+  - deploy
+
+
+
+deploy:
+  stage: deploy
+  image: docker:dind
+  script:
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSOWORD $DOCKER_SERVER 
+    - docker build -t code.generator.ui -t $DOCKER_SERVER/code.generator.ui:$CI_COMMIT_REF_SLUG -t $DOCKER_SERVER/code.generator.ui:latest .
+    - docker push $DOCKER_SERVER/code.generator:$CI_COMMIT_REF_SLUG
+    - docker push $DOCKER_SERVER/code.generator.ui:latest
+  only:
+    - master
+
+mirror-git:
+  stage: deploy
+  image:
+    name: alpine/git
+    entrypoint: ["/bin/sh", "-c"]
+  cache: {}
+  script:
+    - git clone --mirror ${CI_REPOSITORY_URL} project
+    - cd project
+    - git remote add activage ${ACTIVAGE_PROJECT_URL}.git
+    - git push --mirror activage
+    - cd -
+    - git clone --mirror ${CI_REPOSITORY_URL/\.git/\.wiki\.git} wiki
+    - cd wiki
+    - git remote add activage ${ACTIVAGE_PROJECT_URL}.wiki.git
+    - git push --mirror activage

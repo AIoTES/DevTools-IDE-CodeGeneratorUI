@@ -3,13 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseUrl: 'http://localhost:4200',
+  baseUrl: 'http://myfakedomain.com:4200',
   production: false,
-  apiUrl: 'http://localhost:5000/CodeGenerator/rest',
-  codegenerator_url:"http://localhost:8181/GenerateCode/",
+  apiUrl: 'http://myfakedomain.com:5000/CodeGenerator/rest',
+  codegenerator_url:"http://myfakedomain.com:8181/GenerateCode",
   keycloakRealm: 'CodeGenerator',
   keycloakClient: 'CodeGenerator',
-  keycloakBaseUrl: 'http://localhost:5000/'
+  keycloakBaseUrl: 'http://myfakedomain.com:5000/',
+  test: window["env"]["apiUrl"] || "default",
+  CODEGENERATOR_PATH:window["env"]["CODEGENERATOR_PATH"] || "default",
+  AIOTES_HOSTNAME:window["env"]["AIOTES_HOSTNAME"] || "default",
+  AIOTES_API_PORT:window["env"]["AIOTES_API_PORT"] || "default",
+  
+
 };
 
 /*

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment} from '../../environments/environment'
 
@@ -39,6 +39,7 @@ export class MainComponent implements OnInit {
   constructor(private http :HttpClient, private route: Router) { }
 
   ngOnInit(): void {
+    console.log(environment)
     this.ontology_datasource=[]
     this.variables_datasource=[]
     this.ont_datasource = new MatTableDataSource(this.ontology_datasource)
@@ -70,7 +71,14 @@ export class MainComponent implements OnInit {
     this.variables_datasource.forEach(element => {
       post_body.variables[element.var_name]=element.var_value
     });
-    this.http.post<any>(environment.codegenerator_url,this.aux_body).subscribe(data=>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Access-Control-Allow-Origin":"*",
+        "Access-Control-Allow-Credentials": "true",
+        responseType:'application/json'
+      })
+    };
+    this.http.post<any>(environment.codegenerator_url,post_body, httpOptions).subscribe(data=>{
       this.route.navigate(['FileNavigator'])
     },error=>{
       console.log("error",error)      
