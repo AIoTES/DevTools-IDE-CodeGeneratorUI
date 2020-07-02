@@ -1,6 +1,26 @@
 
 stages:
+  - build
   - deploy
+
+compile-angular:
+   stage: build
+   tags:
+      - activage
+   cache:
+      key: $CI_JOB_NAME
+      paths:
+         - node_modules/
+   image: node:12
+   before_script:
+      - npm install
+      - npm install -g @angular/cli
+   script:
+      - ng build
+   artifacts:
+      paths:
+        - dist/codegenerator-ui
+      expire_in: 1 hour
 
 deploy:
   stage: deploy
@@ -10,8 +30,6 @@ deploy:
     - docker build -t code.generator.ui -t $DOCKER_SERVER/code.generator.ui:$CI_COMMIT_REF_SLUG -t $DOCKER_SERVER/code.generator.ui:latest .
     - docker push $DOCKER_SERVER/code.generator:$CI_COMMIT_REF_SLUG
     - docker push $DOCKER_SERVER/code.generator.ui:latest
-  only:
-    - master
 
 mirror-git:
   stage: deploy
