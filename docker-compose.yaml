@@ -1,11 +1,12 @@
 version : "3.0"
 services:
   codegenerator:
-    image: codegenerator
+    image: codegenerator-local
     ports:
        - '8181:8181'
   user-interface:
-    build: '.'
+    #build: .
+    image: docker-activage.satrd.es/code.generator.ui
     ports: 
       - '8080:80'
     environment: 
