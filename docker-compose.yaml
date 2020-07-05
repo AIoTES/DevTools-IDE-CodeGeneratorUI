@@ -1,15 +1,15 @@
 version : "3.0"
 services:
   codegenerator:
-    image: codegenerator-local
+    image: codegeneratorlocal
     ports:
        - '8181:8181'
   user-interface:
-    #build: .
-    image: docker-activage.satrd.es/code.generator.ui
+    build: .
+    #image: docker-activage.satrd.es/code.generator.ui
     ports: 
       - '8080:80'
     environment: 
-      - AIOTES_HOSTNAME=hostname_test
-      - AIOTES_API_PORT=port_test
-      - CODEGENERATOR_PATH=/development/codegenerator
+      - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
+      - AIOTES_API_PORT=${AIOTES_API_PORT}
+      - CODEGENERATOR_PATH=${CODEGENERATOR_PATH}

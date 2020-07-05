@@ -24,18 +24,6 @@ export class MainComponent implements OnInit {
   var_value=''
   selected="false"
   recursive =['true','false']
-  aux_body={
-    template: "https://gitlab.lst.tfo.upm.es/Activage-madrid-ds/code.generator/raw/master/codegenerator.core/src/test/resources/template-simple/simple.xml",
-    ontologies: [
-      {
-        url: "https://protege.stanford.edu/ontologies/pizza/pizza.owl",
-        recursive: "true"
-      }
-    ],
-    variables: {
-      varname: "varvalue"
-    }
-  }
   constructor(private http :HttpClient, private route: Router) { }
 
   ngOnInit(): void {
@@ -50,11 +38,20 @@ export class MainComponent implements OnInit {
   add_ontology(){
     this.ontology_datasource.push({ont_url:this.ont,recursive:this.selected})
     this.ont_datasource = new MatTableDataSource(this.ontology_datasource)
+    this.ont=""
   }
 
   add_variable(){
     this.variables_datasource.push({var_name:this.var_name,var_value:this.var_value})
     this.var_datasource = new MatTableDataSource(this.variables_datasource)
+    this.var_value=""
+    this.var_name=""
+  }
+
+  delete_ontology(data:any){
+    this.ontology_datasource.pop(data)
+    this.ont_datasource = new MatTableDataSource(this.ontology_datasource)
+    console.log(data)
   }
 
   post_data(){
