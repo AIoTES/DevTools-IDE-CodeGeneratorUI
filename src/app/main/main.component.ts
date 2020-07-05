@@ -51,8 +51,12 @@ export class MainComponent implements OnInit {
   delete_ontology(data:any){
     this.ontology_datasource.pop(data)
     this.ont_datasource = new MatTableDataSource(this.ontology_datasource)
-    console.log(data)
   }
+
+  delete_variable(data:any){
+    this.variables_datasource.pop(data)
+    this.var_datasource = new MatTableDataSource(this.variables_datasource)
+    }
 
   post_data(){
     var post_body={

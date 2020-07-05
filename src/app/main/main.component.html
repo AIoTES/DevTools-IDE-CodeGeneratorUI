@@ -22,7 +22,7 @@
           <td mat-cell *matCellDef="let element"> {{element.var_value}} </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="var_displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: var_displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: var_displayedColumns;" (click)="delete_variable(row)"></tr>
       </table>
     
 </div>
