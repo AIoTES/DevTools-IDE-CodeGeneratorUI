@@ -3,13 +3,14 @@
     <p class="coordinator" id="xml-coord-label">XML Coordinator</p>
     <input class="coordinator" matInput placeholder="XML coordinator URL"  [(ngModel)]="coordinator">
 </div>
-<div class="variables-div">
+<div class="variables-div" style="background-color: aqua;">
     <div>
         
         <input matInput placeholder="Variable name"  [(ngModel)]="var_name">
         <input matInput placeholder="Variable defaulult value"  [(ngModel)]="var_value">
         <button (click)="add_variable()">Add variable</button>
     </div>
+    <br>
     <table class="vars-table" mat-table [dataSource]="var_datasource" class="mat-elevation-z8">
     
         <ng-container matColumnDef="var_name">
@@ -26,7 +27,7 @@
       </table>
     
 </div>
-<div class="ontology-div">
+<div class="ontology-div" style="background-color: blueviolet;">
     <div class="ont-input-div">
       <div>
         <p class="ont_input_url">Ontology URL</p><input  matInput class="ont_input_url"   [(ngModel)]="ont">

@@ -11,9 +11,9 @@ export const environment = {
   keycloakClient: 'CodeGenerator',
   keycloakBaseUrl: 'http://myfakedomain.com:5000/',
   test: window["env"]["apiUrl"] || "default",
-  CODEGENERATOR_PATH:window["env"]["CODEGENERATOR_PATH"] || "default",
-  AIOTES_HOSTNAME:window["env"]["AIOTES_HOSTNAME"] || "default",
-  AIOTES_API_PORT:window["env"]["AIOTES_API_PORT"] || "default",
+  CODEGENERATOR_PATH:window["env"]["CODEGENERATOR_PATH"] || "localhost:8181",
+  AIOTES_HOSTNAME:window["env"]["AIOTES_HOSTNAME"] || "0",
+  AIOTES_API_PORT:window["env"]["AIOTES_API_PORT"] || "0",
   
 
 };

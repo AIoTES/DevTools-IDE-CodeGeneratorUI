@@ -20,7 +20,7 @@
     display: inline-block;
 }
 .ontology-div, .variables-div, .coordinator-div{
-    width: 40%;
+    width: 20%;
     position: relative;
     padding: 15px;
 }
