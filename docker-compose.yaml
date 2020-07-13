@@ -4,11 +4,11 @@ services:
     image: docker-activage.satrd.es/code.generator
     ports:
        - '8181:8181'
-       codegenerator-frontend:
+  codegenerator-frontend:
     image: docker-activage.satrd.es/code.generator.ui
     ports: 
       - '8080:80'
-    environment: 
+  environment: 
       - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
       - AIOTES_API_PORT=${AIOTES_API_PORT}
       - CODEGENERATOR_PATH=${CODEGENERATOR_PATH}
