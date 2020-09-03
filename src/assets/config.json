@@ -1,12 +1,10 @@
 {
-  "realm": "activage",
-  "auth-server-url": "https://activage-test.lst.tfo.upm.es:8081/auth",
-  "ssl-required": "external",
-  "resource": "CodeGenerator",
-  "verify-token-audience": true,
+  "realm": "keycloak-angular-auth",
+  "auth-server-url": "http://localhost:5000/auth/",
+  "ssl-required": "none",
+  "resource": "frontend",
   "credentials": {
-    "secret": "051d8e10-dc61-4329-a418-b81e301a0318"
+    "secret": "36cdf012-1793-4094-9fb0-91c268ee7b47"
   },
-  "confidential-port": 0,
-  "policy-enforcer": {}
+  "confidential-port": 0
 }

@@ -1,14 +1,14 @@
 version : "3.0"
 services:
   codegenerator-backend:
-    image: docker-activage.satrd.es/code.generator
+    image: codegenerator-backend
     ports:
        - '8181:8181'
   codegenerator-frontend:
-    image: docker-activage.satrd.es/code.generator.ui
+    image: codegenerator-frontend
     ports: 
       - '8080:80'
-  environment: 
-      - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
-      - AIOTES_API_PORT=${AIOTES_API_PORT}
-      - CODEGENERATOR_PATH=${CODEGENERATOR_PATH}
+    environment: 
+        - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
+        - AIOTES_API_PORT=${AIOTES_API_PORT}
+        - CODEGENERATOR_PATH=${CODEGENERATOR_PATH}
