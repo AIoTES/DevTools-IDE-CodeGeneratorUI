@@ -1,10 +1,8 @@
 {
-  "realm": "keycloak-angular-auth",
-  "auth-server-url": "http://localhost:5000/auth/",
-  "ssl-required": "none",
-  "resource": "frontend",
-  "credentials": {
-    "secret": "36cdf012-1793-4094-9fb0-91c268ee7b47"
-  },
+  "realm": "activage",
+  "auth-server-url": "http://activage-test.lst.tfo.upm.es:8081/auth",
+  "ssl-required": "external",
+  "resource": "CodeGenerator",
+  "public-client": true,
   "confidential-port": 0
 }
