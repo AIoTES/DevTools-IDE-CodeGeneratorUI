@@ -4,10 +4,9 @@ import { MainComponent } from './main/main.component';
 import { KeycloakGuardGuard as AuthGuard  } from './guards/keycloak-guard.guard';
 import { FileNavigatorComponent } from './file-navigator/file-navigator.component';
 import { environment} from '../environments/environment';
-import { env } from 'process';
 
 export const routes: Routes = [
-  { path: environment.AIOTES_HOSTNAME+':'+environment.AIOTES_API_PORT+'development/codegenerator/ui/',  canActivate: [AuthGuard],component: MainComponent  },
+  { path: '',  canActivate: [AuthGuard],component: MainComponent  },
   { path: 'FileNavigator',  canActivate: [AuthGuard],component: FileNavigatorComponent  }
 
 ]
