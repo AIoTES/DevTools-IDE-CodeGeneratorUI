@@ -9,6 +9,6 @@ services:
     ports: 
       - '8080:80'
     environment: 
-        - AIOTES_HOSTNAME=${AIOTES_HOSTNAME}
-        - AIOTES_API_PORT=${AIOTES_API_PORT}
-        - CODEGENERATOR_PATH=${CODEGENERATOR_PATH}
+        - AIOTES_HOSTNAME=A
+        - AIOTES_API_PORT=B
+        - CODEGENERATOR_PATH=C

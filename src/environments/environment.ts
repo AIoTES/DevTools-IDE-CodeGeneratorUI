@@ -5,12 +5,10 @@
 export const environment = {
     baseUrl: 'http://localhost:4200',
     production: false,
-    codegenerator_url:"http://myfakedomain.com:8181/GenerateCode",
-    keycloakRealm: 'activage',
-    keycloakBaseUrl: 'http://activage-test.lst.tfo.upm.es:8081',
+    codegenerator_url:"http://localhost:8181/GenerateCode",
+    keycloakRealm: 'frontend',
+    keycloakBaseUrl: 'http://localhost:5000',
     CODEGENERATOR_PATH:window["env"]["CODEGENERATOR_PATH"] || "localhost:8181",
     AIOTES_HOSTNAME:window["env"]["AIOTES_HOSTNAME"] || "0",
-    AIOTES_API_PORT:window["env"]["AIOTES_API_PORT"] || "0",
-  
-
+    AIOTES_API_PORT:window["env"]["AIOTES_API_PORT"] || "0"
 };

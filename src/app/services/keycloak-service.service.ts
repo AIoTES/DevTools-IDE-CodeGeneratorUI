@@ -22,6 +22,7 @@ export class KeycloakServiceService {
                   KeycloakServiceService.auth.authz = keycloakAuth;
                   KeycloakServiceService.auth.registerUrl = KeycloakServiceService.auth.authz.createRegisterUrl();
                   KeycloakServiceService.auth.logoutUrl = keycloakAuth.authServerUrl + "/realms/" + environment.keycloakRealm + "/protocol/openid-connect/logout?redirect_uri=" + environment.baseUrl + "/index.html";
+                  
                   resolve();
                 } )
                 .catch(() => {

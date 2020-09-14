@@ -25,7 +25,18 @@ export class MainComponent implements OnInit {
   selected="false"
   recursive =['true','false']
   constructor(private http :HttpClient, private route: Router) { }
-
+sample :{
+  "template": "https://gitlab.lst.tfo.upm.es/Activage-madrid-ds/code.generator/raw/master/codegenerator.core/src/test/resources/template-simple/simple.xml",
+  "ontologies": [
+    {
+      "url": "https://protege.stanford.edu/ontologies/pizza/pizza.owl",
+      "recursive": "true"
+    }
+  ],
+  "variables": {
+    "varname": "varvalue"
+  }
+}
   ngOnInit(): void {
     console.log(environment)
     this.ontology_datasource=[]
@@ -72,8 +83,10 @@ export class MainComponent implements OnInit {
     this.variables_datasource.forEach(element => {
       post_body.variables[element.var_name]=element.var_value
     });
+    
     const httpOptions = {
       headers: new HttpHeaders({
+        "Content-Type":"application/json",
         "Access-Control-Allow-Origin":"*",
         "Access-Control-Allow-Credentials": "true",
         responseType:'application/json'

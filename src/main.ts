@@ -4,19 +4,17 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { KeycloakServiceService } from './app/services/keycloak-service.service';
 
+
 if (environment.production) {
   enableProdMode();
 }
 
 KeycloakServiceService.init().then(() => {
-  console.log("kc init ok");
+  console.log("keycloack service init ok");
   const platform = platformBrowserDynamic();
   platform.bootstrapModule( AppModule );
 } )
 .catch( function( error ) {
-console.log( "kc init ko " + JSON.stringify( error ) );
+console.log( "keycloack service " + JSON.stringify( error ) );
 return;
 } );
-
-// platformBrowserDynamic().bootstrapModule(AppModule)
-//   .catch(err => console.error(err));
