@@ -6,8 +6,8 @@ import { FileNavigatorComponent } from './file-navigator/file-navigator.componen
 import { environment} from '../environments/environment';
 
 export const routes: Routes = [
-  { path: '',  canActivate: [AuthGuard],component: MainComponent  },
-  { path: 'FileNavigator',  canActivate: [AuthGuard],component: FileNavigatorComponent  }
+  { path: 'development/codegenerator/ui',  canActivate: [AuthGuard],component: MainComponent  },
+  { path: 'development/codegenerator/ui/FileNavigator',  canActivate: [AuthGuard],component: FileNavigatorComponent  }
 
 ]
 @NgModule({
