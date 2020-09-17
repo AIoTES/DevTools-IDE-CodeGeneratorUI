@@ -1,6 +1,6 @@
 {
   "realm": "activage",
-  "auth-server-url": "http://activage-test.lst.tfo.upm.es:8081/auth",
+  "auth-server-url": "https://activage-test.lst.tfo.upm.es:8081/auth",
   "ssl-required": "external",
   "resource": "CodeGenerator",
   "public-client": true,
