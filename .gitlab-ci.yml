@@ -16,7 +16,7 @@ compile-angular:
       - npm install
       - npm install -g @angular/cli
    script:
-      - ng build
+      - ng build --base-href /development/codegenerator/ui/
    artifacts:
       paths:
         - dist/codegenerator-ui
