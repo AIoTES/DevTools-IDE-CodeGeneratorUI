@@ -5,7 +5,7 @@
 export const environment = {
     baseUrl: 'https://localhost:4200',
     production: false,
-    codegenerator_url:"https://localhost:8181/GenerateCode",
+    codegenerator_url:"https://activage-test1.lst.tfo.upm.es:8081/development/codegenerator",
     keycloakRealm: 'activage',
     keycloakBaseUrl: 'https://activage-test.lst.tfo.upm.es:8081',
     CODEGENERATOR_PATH:window["env"]["CODEGENERATOR_PATH"] || "localhost:8181",
