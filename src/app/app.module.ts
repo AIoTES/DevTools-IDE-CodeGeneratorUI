@@ -12,10 +12,8 @@ import { SecuredHttpInterceptor } from './interceptors/secured-http.interceptor'
 import { KeycloakServiceService } from './services/keycloak-service.service';
 import { KeycloakGuardGuard } from './guards/keycloak-guard.guard';
 import { FileNavigatorComponent } from './file-navigator/file-navigator.component';
-
-
-import {MatPaginatorModule} from '@angular/material/paginator'; 
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatButtonModule} from '@angular/material/button'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     MatPaginatorModule
     
