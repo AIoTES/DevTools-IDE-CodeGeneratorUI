@@ -1,27 +1,56 @@
-# CodegeneratorUi
+# Code Generator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
+CodeGenerator ui tool is a frontend to use the CodeGeneator core tool as backend.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting started
 
-## Code scaffolding
+This UI is specifically designed to work with [Keycloak](https://www.keycloak.org/), so before start the installation process:
+* check the realm installation section to add the configuration to ./assets/config.json
+* Check environment.ts file and add the required information
+  * codegenerator_url: URL pointing to CodeGenerator backend
+  * baseUrl: URL base of this tool (default http://localhost:4200)
+  * keycloakRealm: realm name in keycloak
+  * keycloakBaseUrl: Base URL to access to keycloak
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Installing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+first install the dependencies
 
-## Running end-to-end tests
+```
+npm install
+```
+second install the project
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+ng build
+```
 
-## Further help
+To build with docker
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+docker build -t codegenerator-frontend .
+```
+
+## Further Information
+
+Please check out CodeGeneator tool wiki at [here](https://poliformat.upv.es/portal/site/ESP_0_2626/tool/4136ab45-e867-4287-ac8e-d5eed63f8307/ShowPage?returnView=&studentItemId=0&backPath=&errorMessage=&messageId=&clearAttr=&source=&title=&sendingPage=6007389&newTopLevel=false&postedComment=false&itemId=6007390&addBefore=&path=push&topicId=&addTool=-1&recheck=&id=&forumId=)
+
+## Contributing
+
+Pull requests are always appreciated. 
+	
+Any generated template can be hosted on the own git repository. This way the template can be referenced by public URLs in this tool. Currently there is not central database for templates.
+
+## Credits
+
+This software is manteined by: 
+* Alejandro Medrano <amedrano@lst.tfo.upm.es> 
+* Eduardo Bhuhid <ebuhid@lst.tfo.upm.es> 
+
+## Licence
+
+Code generator and all of its modules are released under [Apache Software Licence](http://www.apache.org/licenses/) version 2.0.
